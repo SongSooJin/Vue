@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>ToDo-List</h1>
+    <label for="title"> 새 항목 </label>
+    <input type="text">
+    <button type="button" v-on:pluss="push"> 추가 </button>
+    <todo></todo>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  
+  <script type="text/javascript">
+    Vue.component('todo', {
+      template: `
+      <div>
+        <ul>
+          <li>{{ todos }}</li>
+        </ul>
+      </div>
+      `,
+
+    });
+
+    var app = new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          todos: [{
+              name: 'Todo 1',
+              done: true,
+            },
+            {
+              name: 'Todo 2',
+              done: false,
+            },
+            {
+              name: 'Todo 3',
+              done: false,
+            },
+          ],
+          todo: {
+            name: '',
+            done: false
+          }
+        }
+      },
+    });
+  </script>
+
+</body>
+
+</html>

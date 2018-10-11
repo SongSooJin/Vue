@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Props Sample</title>
+  </head>
+  <body>
+    <div id="app">
+    <h1>ParentS</h1>
+    <my-child></my-chaild>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my-chaild', {
+        props: [''],
+        template: `
+        <h2>Child</h2>
+        <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ul>
+        `,
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          num: 100,
+          str: 'Hi',
+          arr: [10,20,30],
+          obj: {x:1, y:2}
+        }
+      });
+    </script>
+  </body>
+</html>

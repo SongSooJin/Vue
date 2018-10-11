@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container" id="app">
+    <h1>Calculator</h1>
+    <form class="from-inline" action="index.html" method="post">
+      <div class="from-group">
+        <input type="text" size="5" v-model.number="a">
+        <!-- v-model.number : 넘버형의 자료형으로 바꿔서 넣어라  -->
+        <select>
+          <option v-on:keyup="x">+</option>
+          <option v-on:keyup="y">-</option>
+          <option v-on:keyup="z">*</option>
+          <option v-on:keyup="q">/</option>
+        </select>
+        <input type="text" size="5" v-model.number="b">
+        <button type="button" name="button" v-on:click="show">Show</button>
+      </div>
+    </form>
+    <h2>Result: {{ result }}</h2>
+    <pre>{{ $data }}</pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        a: null,
+        b: null,
+        result: null
+      },
+      methods: {
+        // changeA : function (e) {
+        //   // string 자료형의 값을 저장하지 말고 number자료형의 값을 저장하자.
+        //   // this.a = e.target.value;
+        //   this.a = parseInt(e.target.value);
+        // },
+        // changeB: function (e) {
+        //   this.b = parseInt(e.target.value)
+        // },
+        x: function (e) {
+          this.x = this.a + this.b;
+        },
+        y: function (e) {
+          this.y = this.a - this.b;
+        },
+        z: function (e) {
+          this.z = this.a * this.b;
+        },
+        q: function (e) {
+          this.q = this.a / this.b;
+        },
+        // show : function (e) {
+        //   this.result = this.a  this.b;
+        // }     
+        // show : function (x) {
+        //   this.result = this.a + this.b;
+        // }     
+        // show : function (y) {
+        //   this.result = this.a - this.b;
+        // }     
+        // show : function (z) {
+        //   this.result = this.a * this.b;
+        // }     
+        // show : function (q) {
+        //   this.result = this.a / this.b;
+        // } 
+        show : function (e) {
+          switch (x) {
+            this.result = this.a + this.b;
+          }
+          else if (y) {
+            this.result = this.a - this.b;
+          }
+          else if (z) {
+            this.result = this.a - this.b;
+          }
+          else if (q) {
+            this.result = this.a / this.b;
+          }
+        };
+          }
+        });
+  </script>
+
+</body>
+
+</html>
